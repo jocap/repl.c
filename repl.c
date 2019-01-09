@@ -6,7 +6,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-void handle_int(int sig) {
+void handle_int(int sig) { /* handle ctrl-c */
 	printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	act.sa_handler = handle_int;
 	sigaction(SIGINT, &act, NULL);
 
-	rl_clear_signals();
+	rl_clear_signals(); /* tell readline to ignore signals */
 
 	while (true) {
 		char *input = readline(prompt);
