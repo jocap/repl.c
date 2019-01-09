@@ -30,14 +30,14 @@ int main(int argc, char *argv[]) {
 	rl_clear_signals();
 
 	while (true) {
-	    char *input = readline(prompt);
+		char *input = readline(prompt);
 
 		if (input == NULL) { /* ctrl-d */
 			printf("\n");
 			break;
 		}
-	    
-	    add_history(input);
+		
+		add_history(input);
 
 		int size = strlen(argv[1]) + 1 + strlen(input) + 1;
 		char *command = malloc(size);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 
 		system(command);
 
-	    free(input);
+		free(input);
 	}
-    return 0;
+	return 0;
 }
