@@ -14,10 +14,50 @@ edit the Makefile and modify the `PREFIX` variable.
 
 To uninstall both binary and man page, run `make uninstall`.
 
-### Usage
+***
 
-    $ repl git
-    git > status
-    On branch master
-    Your branch is up to date with 'origin/master'.
-    git > 
+REPL(1) - General Commands Manual
+
+### NAME
+
+**repl** - create a REPL out of any command
+
+### SYNPOSIS
+
+**repl**
+*command*
+
+### DESCRIPTION
+
+When invoked, the
+**repl**
+utility puts the user in a read-eval-print loop, in which it reads
+input from the user, appends it to the
+*command*
+provided by the single argument, and lets the shell evaluate the
+full string.
+
+Built on GNU readline, it supports history and Emacs key bindings.
+
+**repl**
+is useful for command-line interfaces built on a
+"prefix command"
+that has to be typed over and over preceding the actual command, like
+git(1).
+
+### EXAMPLES
+
+	$ repl git
+	git > status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	git >
+
+### AUTHORS
+
+**repl**
+is written by
+John Ankarstr&#246;m,
+available {on the web|by e-mail} at john{.|@}ankarstrom.se.
+
+OpenBSD 6.4 - January 10, 2019
