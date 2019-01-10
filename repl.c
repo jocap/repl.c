@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 		
-		add_history(input);
+		if (input[0] != '\0') add_history(input);
 
 		int size = strlen(argv[1]) + 1 + strlen(input) + 1;
 		char *command = malloc(size);
