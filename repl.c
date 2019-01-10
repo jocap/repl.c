@@ -6,7 +6,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-void handle_int(int sig) { /* handle ctrl-c */
+void handle_int() { /* handle ctrl-c */
 	printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	if (prompt == NULL) err(1, NULL);
 	snprintf(prompt, size, "%s > ", argv[1]);
 
-	struct sigaction act;
+	struct sigaction act = {0};
 	act.sa_handler = handle_int;
 	sigaction(SIGINT, &act, NULL);
 
