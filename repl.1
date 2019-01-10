@@ -1,0 +1,40 @@
+.Dd $Mdocdate$
+.Dt REPL 1
+.Os
+.Sh NAME
+.Nm repl
+.Nd create a REPL out of any command
+.\"
+.Sh SYNPOSIS
+.Nm repl
+.Ar command
+.\"
+.Sh DESCRIPTION
+When invoked, the
+.Nm repl
+utility puts the user in a read-eval-print loop, in which it reads
+input from the user, appends it to the
+.Ar command
+provided by the single argument, and lets the shell evaluate the
+full string.
+
+Built on GNU readline, it supports history and Emacs key bindings.
+
+.Nm repl
+is useful for command-line interfaces built on a 
+.Dq prefix command
+that has to be typed over and over preceding the actual command, like
+.Xr git 1 .
+.\"
+.Sh EXAMPLES
+.Dl $ repl git
+.Dl git > status
+.Dl On branch master
+.Dl Your branch is up to date with 'origin/master'.
+.Dl git > 
+.\"
+.Sh AUTHORS
+.Nm repl
+is written by
+.An John Ankarström ,
+available {on the web|by e-mail} at john{.|@}ankarstrom.se.
