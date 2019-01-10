@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <signal.h>
-#include <errno.h>
+#include <err.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 
@@ -21,6 +21,7 @@ int main(int argc, char *argv[]) {
 
 	int size = strlen(argv[1]) + 3 + 1;
 	char *prompt = malloc(size);
+	if (prompt == NULL) err(1, NULL);
 	snprintf(prompt, size, "%s > ", argv[1]);
 
 	struct sigaction act;
@@ -41,11 +42,16 @@ int main(int argc, char *argv[]) {
 
 		int size = strlen(argv[1]) + 1 + strlen(input) + 1;
 		char *command = malloc(size);
+		if (command == NULL) err(1, NULL);
 		snprintf(command, size, "%s %s", argv[1], input);
 
 		system(command);
 
 		free(input);
+		free(command);
 	}
+
+	free(prompt);
+
 	return 0;
 }
