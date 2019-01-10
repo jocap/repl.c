@@ -1,6 +1,30 @@
 `repl.c` creates a read-eval-print loop out of any command.  It is
 a simple and readable C program that requires GNU readline.
 
+In other words, it's a REPL for command-line interfaces that always
+require a "prefix" command.  If you're tired of having to type `git`
+everytime you want to issue a `git` command:
+
+    $ git init
+    $ git add .
+    $ git status
+    $ git commit
+    $ git push
+    $ git status
+
+... then you can do this instead:
+
+    $ repl git
+    git > init
+    git > add .
+    git > status
+    git > commit
+    git > push
+    git > status
+
+The program automatically prefixes each command with `git`, so that
+you don't have to type it.
+
 ### Installation
 
 The following commands install `repl` in `/usr/local/bin` and
