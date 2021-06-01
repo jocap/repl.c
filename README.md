@@ -1,3 +1,9 @@
+This repository is abandoned.
+Please see the new repository at
+http://git.ankarstrom.se/repl/.
+
+---
+
 `repl.c` creates a read-eval-print loop out of any command.  It is
 a simple and readable C program that requires GNU readline.
 
